@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>{{ text }}</p>
+    <button @click="changeText">Изменить текст</button>
   </div>
 </template>
 
@@ -8,8 +9,13 @@
 export default {
   data() {
     return {
-      text: 'Пример текста'
+      text: 'Начальный текст'
     };
+  },
+  methods: {
+    changeText() {
+      this.text = 'Новый текст';
+    }
   }
 }
 </script>
