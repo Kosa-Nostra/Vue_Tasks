@@ -1,7 +1,8 @@
 <template>
   <div>
     <p>{{ text }}</p>
-    <button @click="changeText">Изменить текст</button>
+    <button @click="updateText('Первое значение')">Установить первое значение</button>
+    <button @click="updateText('Второе значение')">Установить второе значение</button>
   </div>
 </template>
 
@@ -9,12 +10,12 @@
 export default {
   data() {
     return {
-      text: 'Начальный текст'
+      text: 'Начальное значение'
     };
   },
   methods: {
-    changeText() {
-      this.text = 'Новый текст';
+    updateText(newText) {
+      this.text = newText;
     }
   }
 }
