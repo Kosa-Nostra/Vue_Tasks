@@ -1,31 +1,16 @@
-<script>
-export default {
-  data() {
-    return {
-      currentDay: "",
-    };
-  },
-  methods: {
-    getWeekday(num) {
-      const days = [
-        "Воскресенье", "Понедельник", "Вторник", 
-        "Среда", "Четверг", "Пятница", "Суббота"
-      ];
-      return days[num % 7] || "Некорректное число";
-    },
-    showCurrentDay() {
-      const today = new Date().getDay(); // Получаем номер дня (0 - Воскресенье, 6 - Суббота)
-      this.currentDay = this.getWeekday(today);
-    }
-  },
-  mounted() {
-    this.showCurrentDay();
-  }
-};
-</script>
-
 <template>
   <div>
-    <p>Сегодня: {{ currentDay }}</p>
+    <button @click="showSquare(4)">Показать квадрат числа 4</button>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    showSquare(number) {
+      const square = number * number;
+      alert(`Квадрат числа ${number} равен ${square}`);
+    }
+  }
+}
+</script>
