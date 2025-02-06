@@ -13,7 +13,5 @@
 	}
 </script>
 <template>
-	<div>
-        <p>{{ show() }}</p>
-	</div>
+	<button @click="show">text</button>
 </template>
