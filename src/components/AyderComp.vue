@@ -1,20 +1,18 @@
 <script>
-import { hover } from '@testing-library/user-event/dist/hover';
-
-	export default {
-        data() {
-	return {
-		num1: 1,
-		num2: 2,
-	}
-},
-    methods: {
-	show: function() {
-		alert((this.num1)+(this.num2));
-	}
+export default {
+  methods: {
+    getWeekday(num) {
+      const days = [
+        "Воскресенье", "Понедельник", "Вторник", 
+        "Среда", "Четверг", "Пятница", "Суббота"
+      ];
+      return days[num % 7] || "Некорректное число";
+    }
+  }
 }
-	}
 </script>
 <template>
-	<button @click ="show">text</button>
-</template>
+	<div>
+	  <p>{{ getWeekday(3) }}</p> 
+	</div>
+  </template>
