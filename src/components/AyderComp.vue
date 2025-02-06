@@ -4,16 +4,17 @@ import { hover } from '@testing-library/user-event/dist/hover';
 	export default {
         data() {
 	return {
-		obj: {x: 1, y: 2, z: 3},
+		num1: 1,
+		num2: 2,
 	}
 },
     methods: {
 	show: function() {
-		alert(new Date());
+		alert((this.num1)+(this.num2));
 	}
 }
 	}
 </script>
 <template>
-	<button @mouseover ="show">text</button>
+	<button @click ="show">text</button>
 </template>
