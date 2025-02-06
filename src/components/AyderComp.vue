@@ -2,15 +2,15 @@
 	export default {
         data() {
 	return {
-		num1: 1,
-		num2: 2,
-		num3: 3,
+		arr: ['x', 'y', 'z'],
 	}
 }
 	}
 </script>
 <template>
 	<div>
-        <p>{{ num1 + num2 + num3 }}</p>
+        <p>{{ arr[0] }}</p>
+        <p>{{ arr[1] }}</p>
+        <p>{{ arr[2] }}</p>
 	</div>
 </template>
