@@ -1,4 +1,6 @@
 <script>
+import { hover } from '@testing-library/user-event/dist/hover';
+
 	export default {
         data() {
 	return {
@@ -13,5 +15,5 @@
 	}
 </script>
 <template>
-	<button @click="show">text</button>
+	<button @mouseover ="show">text</button>
 </template>
