@@ -2,19 +2,13 @@
 	export default {
         data() {
 	return {
-		name: 'john',
-		surn: 'smit',
-        attr: 'img.png',
-        text: 'page',
-		href: 'page.html',
+		num: 5,
 	}
-}	
+}
 	}
 </script>
 <template>
 	<div>
-        <p>{{ name }}</p>
-        <p>{{ surn }}</p>
-        <a :href="page.html">page</a>
+        <p>{{ num * num }}</p>
 	</div>
 </template>
