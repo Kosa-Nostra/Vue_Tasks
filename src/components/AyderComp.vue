@@ -1,9 +1,6 @@
 <template>
   <div>
-    <p v-show="isVisible">Этот абзац может быть скрыт или показан.</p>
-    <button @click="toggleVisibility">
-      {{ isVisible ? 'Скрыть' : 'Показать' }} элемент
-    </button>
+    <p :class="classObject">Этот абзац может быть активным или невалидным.</p>
   </div>
 </template>
 
@@ -11,17 +8,22 @@
 export default {
   data() {
     return {
-      isVisible: true, // Изначально элемент видим
+      classObject: {
+        active: true,
+        valid: false,
+      },
     };
-  },
-  methods: {
-    toggleVisibility() {
-      this.isVisible = !this.isVisible;
-    },
   },
 };
 </script>
 
 <style>
-/* Дополнительные стили при необходимости */
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+.valid {
+  text-decoration: underline;
+}
 </style>
