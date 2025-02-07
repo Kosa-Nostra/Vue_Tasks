@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div v-for="(item, index) in items" :key="index">
-      <p>{{ item }}</p>
-      <p class="divider"></p>
-    </div>
-  </div>
+  <ul>
+    <li v-for="(item, index) in items" :key="index">
+      {{ item }}
+      <p v-if="index < items.length - 1" class="divider"></p>
+    </li>
+  </ul>
 </template>
 
 <script>
