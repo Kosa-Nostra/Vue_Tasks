@@ -1,9 +1,9 @@
 <template>
   <div>
     <ul>
-      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+      <li v-for="(item, index) in sortedItems" :key="index">{{ item }}</li>
     </ul>
-    <button @click="removeSecondLastItem">Удалить предпоследний элемент</button>
+    <button @click="sortItems">Сортировать</button>
   </div>
 </template>
 
@@ -11,14 +11,17 @@
 export default {
   data() {
     return {
-      items: ['Элемент 1', 'Элемент 2', 'Элемент 3', 'Элемент 4'],
+      items: ['Элемент 3', 'Элемент 1', 'Элемент 2'],
     };
   },
+  computed: {
+    sortedItems() {
+      return [...this.items].sort();
+    },
+  },
   methods: {
-    removeSecondLastItem() {
-      if (this.items.length > 1) {
-        this.items.splice(this.items.length - 2, 1);
-      }
+    sortItems() {
+      this.items = this.sortedItems;
     },
   },
 };
