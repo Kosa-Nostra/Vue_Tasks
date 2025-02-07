@@ -1,10 +1,9 @@
 <template>
   <div>
-    <ul>
-      <li v-for="(value, key, index) in users" :key="index">
-        {{ key }} - {{ value }} - {{ index + 1 }}
-      </li>
-    </ul>
+    <div v-for="(item, index) in items" :key="index">
+      <p>{{ item }}</p>
+      <p class="divider"></p>
+    </div>
   </div>
 </template>
 
@@ -12,11 +11,7 @@
 export default {
   data() {
     return {
-      users: {
-        user1: '100$',
-        user2: '200$',
-        user3: '300$',
-      },
+      items: [1, 2, 3],
     };
   },
 };
