@@ -1,7 +1,8 @@
 <template>
   <div>
-    <button @click="toggleParagraph">Переключить абзац</button>
-    <p v-if="isParagraphVisible">Это абзац, который можно скрыть или показать.</p>
+    <div v-for="(item, index) in items" :key="index">
+      {{ item }}
+    </div>
   </div>
 </template>
 
@@ -9,13 +10,8 @@
 export default {
   data() {
     return {
-      isParagraphVisible: true // Изначальное состояние абзаца (видим)
+      items: [1, 2, 3, 4, 5]
     };
-  },
-  methods: {
-    toggleParagraph() {
-      this.isParagraphVisible = !this.isParagraphVisible; // Переключить видимость абзаца
-    }
   }
 }
 </script>
