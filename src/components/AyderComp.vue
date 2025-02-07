@@ -1,7 +1,8 @@
 <template>
   <div>
     <button @click="visible = true">Показать абзац</button>
-    <p v-show="visible">Этот абзац был скрыт, но теперь виден.</p>
+    <button @click="visible = false">Скрыть абзац</button>
+    <p v-show="visible">Этот абзац можно показать или скрыть.</p>
   </div>
 </template>
 
