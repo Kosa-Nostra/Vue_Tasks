@@ -1,7 +1,9 @@
 <template>
   <div>
     <ul>
-      <li v-for="(value, index) in values" :key="index">{{ value }}</li>
+      <li v-for="([key, value], index) in entries" :key="index">
+        {{ key }} - {{ value }}
+      </li>
     </ul>
   </div>
 </template>
@@ -18,8 +20,8 @@ export default {
     };
   },
   computed: {
-    values() {
-      return Object.values(this.users);
+    entries() {
+      return Object.entries(this.users);
     },
   },
 };
