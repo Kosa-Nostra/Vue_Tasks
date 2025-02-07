@@ -3,7 +3,7 @@
     <ul>
       <li v-for="(item, index) in items" :key="index">{{ item }}</li>
     </ul>
-    <button @click="removeLastItem">Удалить последний элемент</button>
+    <button @click="removeSecondLastItem">Удалить предпоследний элемент</button>
   </div>
 </template>
 
@@ -11,12 +11,14 @@
 export default {
   data() {
     return {
-      items: ['Элемент 1', 'Элемент 2', 'Элемент 3'],
+      items: ['Элемент 1', 'Элемент 2', 'Элемент 3', 'Элемент 4'],
     };
   },
   methods: {
-    removeLastItem() {
-      this.items.pop();
+    removeSecondLastItem() {
+      if (this.items.length > 1) {
+        this.items.splice(this.items.length - 2, 1);
+      }
     },
   },
 };
