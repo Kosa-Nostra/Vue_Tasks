@@ -1,9 +1,7 @@
 <template>
   <div>
-    <button @click="hideParagraphs">Скрыть абзацы</button>
-    <p v-if="!areParagraphsHidden">Первый абзац</p>
-    <p v-if="!areParagraphsHidden">Второй абзац</p>
-    <p v-if="!areParagraphsHidden">Третий абзац</p>
+    <button @click="toggleParagraph">Переключить абзац</button>
+    <p v-if="isParagraphVisible">Это абзац, который можно скрыть или показать.</p>
   </div>
 </template>
 
@@ -11,12 +9,12 @@
 export default {
   data() {
     return {
-      areParagraphsHidden: false // Изначальное состояние абзацев (видимы)
+      isParagraphVisible: true // Изначальное состояние абзаца (видим)
     };
   },
   methods: {
-    hideParagraphs() {
-      this.areParagraphsHidden = true; // Скрыть абзацы
+    toggleParagraph() {
+      this.isParagraphVisible = !this.isParagraphVisible; // Переключить видимость абзаца
     }
   }
 }
