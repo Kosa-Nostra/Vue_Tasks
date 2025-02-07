@@ -3,7 +3,7 @@
     <ul>
       <li v-for="(item, index) in items" :key="index">{{ item }}</li>
     </ul>
-    <button @click="addItem">Добавить элемент</button>
+    <button @click="removeFirstItem">Удалить первый элемент</button>
   </div>
 </template>
 
@@ -15,9 +15,8 @@ export default {
     };
   },
   methods: {
-    addItem() {
-      const newItem = `Элемент ${this.items.length + 1}`;
-      this.items.push(newItem);
+    removeFirstItem() {
+      this.items.shift();
     },
   },
 };
