@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+      <li v-for="(item, index) in arr" :key="index">{{ index }}</li>
     </ul>
   </div>
 </template>
@@ -10,7 +10,7 @@
 export default {
   data() {
     return {
-      items: [1, 2, 3, 4, 5]
+      arr: ['x', 'y', 'z']
     };
   }
 }
