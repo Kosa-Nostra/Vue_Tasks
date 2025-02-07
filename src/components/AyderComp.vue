@@ -1,7 +1,9 @@
 <template>
   <div>
     <p v-show="isVisible">Этот абзац может быть скрыт или показан.</p>
-    <button @click="isVisible = false">Скрыть элемент</button>
+    <button @click="toggleVisibility">
+      {{ isVisible ? 'Скрыть' : 'Показать' }} элемент
+    </button>
   </div>
 </template>
 
@@ -11,6 +13,11 @@ export default {
     return {
       isVisible: true, // Изначально элемент видим
     };
+  },
+  methods: {
+    toggleVisibility() {
+      this.isVisible = !this.isVisible;
+    },
   },
 };
 </script>
