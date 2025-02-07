@@ -1,12 +1,15 @@
 <template>
   
-  <p :class="str">test</p>
+  <p :class="obj">test</p>
 </template>
 <script>
 export default{
-data() {
+  data() {
 	return {
-		str: 'active valid',
+		obj: {
+			done: true,
+			selected:  false,
+		},
 	}
 }
 }
