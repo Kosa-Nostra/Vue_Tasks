@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="https://example.com" @click.prevent="handleClick">Нажмите здесь</a>
+    <button @click.once="handleClick">Нажмите меня</button>
   </div>
 </template>
 
@@ -8,8 +8,7 @@
 export default {
   methods: {
     handleClick() {
-      // Логика, выполняемая при клике на ссылку
-      console.log('Ссылка была нажата, но переход отменен.');
+      alert('Кнопка нажата!');
     }
   }
 }
