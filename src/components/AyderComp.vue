@@ -1,12 +1,15 @@
 <template>
-  <p v-if="!hidden">text</p>
+  <div>
+    <button @click="visible = true">Показать абзац</button>
+    <p v-show="visible">Этот абзац был скрыт, но теперь виден.</p>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      hidden: true // Изначальное значение свойства hidden
+      visible: false // Изначально абзац скрыт
     };
   }
 }
