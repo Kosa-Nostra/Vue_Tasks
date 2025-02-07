@@ -1,8 +1,9 @@
 <template>
   <div>
-    <p v-if="age < 18">Подросток</p>
-    <p v-else-if="age >= 19 && age <= 25">Молодой человек</p>
-    <p v-else>Мужчина</p>
+    <button @click="hideParagraphs">Скрыть абзацы</button>
+    <p v-if="!areParagraphsHidden">Первый абзац</p>
+    <p v-if="!areParagraphsHidden">Второй абзац</p>
+    <p v-if="!areParagraphsHidden">Третий абзац</p>
   </div>
 </template>
 
@@ -10,8 +11,13 @@
 export default {
   data() {
     return {
-      age: 25 // Изначальное значение свойства age
+      areParagraphsHidden: false // Изначальное состояние абзацев (видимы)
     };
+  },
+  methods: {
+    hideParagraphs() {
+      this.areParagraphsHidden = true; // Скрыть абзацы
+    }
   }
 }
 </script>
