@@ -1,8 +1,11 @@
 <template>
   <div>
-    <p v-if="isVisible">Этот абзац отображается, когда isVisible = true.</p>
-    <button v-if="!isVisible" @click="toggleVisibility">Показать абзац</button>
-    <button v-else @click="toggleVisibility">Скрыть абзац</button>
+    <div v-for="(item, index) in items" :key="index">
+      <p v-if="item.visible">{{ item.text }}</p>
+      <button @click="toggleVisibility(index)">
+        {{ item.visible ? 'Скрыть' : 'Показать' }} абзац {{ index + 1 }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -10,13 +13,17 @@
 export default {
   data() {
     return {
-      isVisible: false // Изначально абзац скрыт
+      items: [
+        { text: 'Текст первого абзаца', visible: false },
+        { text: 'Текст второго абзаца', visible: false },
+        { text: 'Текст третьего абзаца', visible: false }
+      ]
     };
   },
   methods: {
-    toggleVisibility() {
-      this.isVisible = !this.isVisible;
+    toggleVisibility(index) {
+      this.items[index].visible = !this.items[index].visible;
     }
   }
-}
+};
 </script>
