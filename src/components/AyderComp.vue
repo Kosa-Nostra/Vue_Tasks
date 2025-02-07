@@ -14,9 +14,9 @@ export default {
   data() {
     return {
       items: [
-        { text: 'Текст первого абзаца', visible: false },
-        { text: 'Текст второго абзаца', visible: false },
-        { text: 'Текст третьего абзаца', visible: false }
+        { text: 'Первый абзац', visible: false },
+        { text: 'Второй абзац', visible: false },
+        { text: 'Третий абзац', visible: false }
       ]
     };
   },
@@ -25,5 +25,5 @@ export default {
       this.items[index].visible = !this.items[index].visible;
     }
   }
-};
+}
 </script>
