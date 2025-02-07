@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <p :class="{ valid: isValid, disabled: isDisabled }">
-      Этот абзац изменяет классы в зависимости от свойств.
-    </p>
-    <button @click="toggleValid">Переключить валидность</button>
-    <button @click="toggleDisabled">Переключить доступность</button>
-  </div>
+  <p :style="{color: 'green', backgroundColor: 'yellow'}">
+TEXT
+  </p>
 </template>
 
 <script>
