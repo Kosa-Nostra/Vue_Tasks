@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(item, index) in arr" :key="index">{{ index }}</li>
+      <li v-for="(value, index) in values" :key="index">{{ value }}</li>
     </ul>
   </div>
 </template>
@@ -10,8 +10,17 @@
 export default {
   data() {
     return {
-      arr: ['x', 'y', 'z']
+      users: {
+        user1: '100$',
+        user2: '200$',
+        user3: '300$',
+      },
     };
-  }
-}
+  },
+  computed: {
+    values() {
+      return Object.values(this.users);
+    },
+  },
+};
 </script>
