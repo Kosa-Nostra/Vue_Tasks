@@ -1,17 +1,29 @@
 <template>
-  
-  <p :class="obj">test</p>
+  <div>
+    <p :class="{ hidden: obj.hidden }">Этот абзац может быть скрыт.</p>
+    <button @click="toggleVisibility">Переключить видимость</button>
+  </div>
 </template>
+
 <script>
-export default{
+export default {
   data() {
-	return {
-		obj: {
-			done: true,
-			selected:  false,
-		},
-	}
-}
-}
+    return {
+      obj: {
+        hidden: true,
+      },
+    };
+  },
+  methods: {
+    toggleVisibility() {
+      this.obj.hidden = !this.obj.hidden;
+    },
+  },
+};
 </script>
-<style> p{color: greenyellow;}</style>
+
+<style>
+.hidden {
+  display: none;
+}
+</style>
