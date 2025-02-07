@@ -1,9 +1,9 @@
 <template>
   <div>
     <ul>
-      <li v-for="(item, index) in sortedItems" :key="index">{{ item }}</li>
+      <li v-for="(item, index) in reversedItems" :key="index">{{ item }}</li>
     </ul>
-    <button @click="sortItems">Сортировать</button>
+    <button @click="reverseItems">Перевернуть список</button>
   </div>
 </template>
 
@@ -11,17 +11,17 @@
 export default {
   data() {
     return {
-      items: ['Элемент 3', 'Элемент 1', 'Элемент 2'],
+      items: ['Элемент 1', 'Элемент 2', 'Элемент 3'],
     };
   },
   computed: {
-    sortedItems() {
-      return [...this.items].sort();
+    reversedItems() {
+      return [...this.items].reverse();
     },
   },
   methods: {
-    sortItems() {
-      this.items = this.sortedItems;
+    reverseItems() {
+      this.items = this.reversedItems;
     },
   },
 };
