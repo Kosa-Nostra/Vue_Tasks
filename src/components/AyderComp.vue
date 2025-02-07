@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-for="(item, index) in items" :key="index">
-      {{ item * item }}
-    </div>
+    <ul>
+      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+    </ul>
   </div>
 </template>
 
