@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p>{{ text }}</p>
-    <button @click="updateText('Первое значение')">Установить первое значение</button>
-    <button @click="updateText('Второе значение')">Установить второе значение</button>
+    <p>Цена за единицу: {{ cost }}</p>
+    <p>Количество: {{ amount }}</p>
+    <p>Общая стоимость: {{ price }}</p>
   </div>
 </template>
 
@@ -10,12 +10,13 @@
 export default {
   data() {
     return {
-      text: 'Начальное значение'
+      cost: 100,
+      amount: 5
     };
   },
-  methods: {
-    updateText(newText) {
-      this.text = newText;
+  computed: {
+    price() {
+      return this.cost * this.amount;
     }
   }
 }
