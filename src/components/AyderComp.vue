@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p :class="{ hidden: obj.hidden }">Этот абзац может быть скрыт.</p>
-    <button @click="toggleVisibility">Переключить видимость</button>
+    <p v-show="isVisible">Этот абзац может быть скрыт или показан.</p>
+    <button @click="isVisible = true">Показать элемент</button>
   </div>
 </template>
 
@@ -9,21 +9,12 @@
 export default {
   data() {
     return {
-      obj: {
-        hidden: true,
-      },
+      isVisible: false, // Изначально элемент скрыт
     };
-  },
-  methods: {
-    toggleVisibility() {
-      this.obj.hidden = !this.obj.hidden;
-    },
   },
 };
 </script>
 
 <style>
-.hidden {
-  display: none;
-}
+/* Дополнительные стили при необходимости */
 </style>
