@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p v-for="number in numbers" :key="number">{{ number }}</p>
+    <p v-for="(item, index) in positiveItems" :key="index">{{ item }}</p>
   </div>
 </template>
 
@@ -8,8 +8,13 @@
 export default {
   data() {
     return {
-      numbers: Array.from({ length: 30 }, (_, index) => index + 1),
+      items: [1, -2, 3, -4, 5],
     };
+  },
+  computed: {
+    positiveItems() {
+      return this.items.filter(item => item > 0);
+    },
   },
 };
 </script>
