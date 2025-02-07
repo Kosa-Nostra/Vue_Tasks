@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="(value, key, index) in users" :key="index">
-        {{ key }} - {{ value }} - {{ index }}
+        {{ key }} - {{ value }} - {{ index + 1 }}
       </li>
     </ul>
   </div>
