@@ -1,7 +1,7 @@
 <template>
   <div>
     <p v-show="isVisible">Этот абзац может быть скрыт или показан.</p>
-    <button @click="isVisible = true">Показать элемент</button>
+    <button @click="isVisible = false">Скрыть элемент</button>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      isVisible: false, // Изначально элемент скрыт
+      isVisible: true, // Изначально элемент видим
     };
   },
 };
