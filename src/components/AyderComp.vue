@@ -1,5 +1,5 @@
 <template>
-  <p :style="{color: 'green', backgroundColor: 'yellow'}">
+  <p :style="{fontStyle: 'italic',fontWeight: 'bold'}">
 TEXT
   </p>
 </template>
