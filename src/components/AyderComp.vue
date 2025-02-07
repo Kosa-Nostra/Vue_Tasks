@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="visible = true">Показать абзац</button>
-    <button @click="visible = false">Скрыть абзац</button>
-    <p v-show="visible">Этот абзац можно показать или скрыть.</p>
+    <p v-if="isVisible">Этот абзац отображается, когда isVisible = true.</p>
+    <button v-if="!isVisible" @click="toggleVisibility">Показать абзац</button>
+    <button v-else @click="toggleVisibility">Скрыть абзац</button>
   </div>
 </template>
 
@@ -10,8 +10,13 @@
 export default {
   data() {
     return {
-      visible: false // Изначально абзац скрыт
+      isVisible: false // Изначально абзац скрыт
     };
+  },
+  methods: {
+    toggleVisibility() {
+      this.isVisible = !this.isVisible;
+    }
   }
 }
 </script>
