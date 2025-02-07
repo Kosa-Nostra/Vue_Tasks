@@ -1,6 +1,10 @@
 <template>
   <div>
-    <p :class="classObject">Этот абзац может быть активным или невалидным.</p>
+    <p :class="{ valid: isValid, disabled: isDisabled }">
+      Этот абзац изменяет классы в зависимости от свойств.
+    </p>
+    <button @click="toggleValid">Переключить валидность</button>
+    <button @click="toggleDisabled">Переключить доступность</button>
   </div>
 </template>
 
@@ -8,22 +12,29 @@
 export default {
   data() {
     return {
-      classObject: {
-        active: true,
-        valid: false,
-      },
+      isValid: true,
+      isDisabled: true,
     };
+  },
+  methods: {
+    toggleValid() {
+      this.isValid = !this.isValid;
+    },
+    toggleDisabled() {
+      this.isDisabled = !this.isDisabled;
+    },
   },
 };
 </script>
 
 <style>
-.active {
+.valid {
   color: green;
   font-weight: bold;
 }
 
-.valid {
-  text-decoration: underline;
+.disabled {
+  color: gray;
+  text-decoration: line-through;
 }
 </style>
