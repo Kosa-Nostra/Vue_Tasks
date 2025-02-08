@@ -4,7 +4,7 @@
       <li v-for="(item, index) in items" :key="index">{{ item }}</li>
     </ul>
     <input v-model="newItem" type="text" placeholder="Введите текст" />
-    <button @click="addItem">Добавить в список</button>
+    <button @click="addItem">Добавить в начало списка</button>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
   methods: {
     addItem() {
       if (this.newItem.trim() !== "") { // Проверяем, что текст не пустой
-        this.items.push(this.newItem); // Добавляем новый элемент в массив
+        this.items.unshift(this.newItem); // Добавляем новый элемент в начало массива
         this.newItem = ""; // Очищаем инпут
       }
     }
