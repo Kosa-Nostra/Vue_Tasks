@@ -1,7 +1,7 @@
 <template>
   <div>
     <input v-model="text" placeholder="Введите текст" />
-    <p>{{ text }}</p>
+    <p>{{ upperText }}</p>
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
     return {
       text: ""
     };
+  },
+  computed: {
+    upperText() {
+      return this.text.toUpperCase();
+    }
   }
 };
 </script>
