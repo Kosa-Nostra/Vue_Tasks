@@ -1,10 +1,7 @@
 <template>
   <div>
-    <input type="text" v-bind:disabled="!isChecked" placeholder="Введите текст" />
-    <label>
-      <input type="checkbox" v-model="isChecked" />
-      Инпут активен
-    </label>
+    <input type="text" v-model="inputText" @keydown.enter="showText" placeholder="Введите текст" />
+    <p v-if="submittedText">Вы ввели: {{ submittedText }}</p>
   </div>
 </template>
 
@@ -12,8 +9,15 @@
 export default {
   data() {
     return {
-      isChecked: false // Состояние чекбокса: если true — инпут активен, если false — заблокирован
+      inputText: "", // Текущий текст в инпуте
+      submittedText: "" // Текст, который был отправлен
     };
+  },
+  methods: {
+    showText() {
+      this.submittedText = this.inputText; // Копируем введенный текст в переменную для отображения
+      this.inputText = ""; // Очищаем инпут
+    }
   }
 };
 </script>
