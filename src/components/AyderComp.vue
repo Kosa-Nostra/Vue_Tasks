@@ -1,7 +1,25 @@
 <template>
   <div>
-    <input type="checkbox" v-model="isChecked" /> Показать абзац
-    <p v-if="isChecked">Этот абзац будет показан, если чекбокс отмечен.</p>
+    <h3>Какие языки вы знаете?</h3>
+    <label>
+      <input type="checkbox" value="Русский" v-model="languages" /> Русский
+    </label>
+    <label>
+      <input type="checkbox" value="Английский" v-model="languages" /> Английский
+    </label>
+    <label>
+      <input type="checkbox" value="Испанский" v-model="languages" /> Испанский
+    </label>
+    <label>
+      <input type="checkbox" value="Французский" v-model="languages" /> Французский
+    </label>
+
+    <div>
+      <h4>Вы знаете следующие языки:</h4>
+      <ul>
+        <li v-for="language in languages" :key="language">{{ language }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -9,7 +27,7 @@
 export default {
   data() {
     return {
-      isChecked: false
+      languages: [] // Массив для хранения выбранных языков
     };
   }
 };
