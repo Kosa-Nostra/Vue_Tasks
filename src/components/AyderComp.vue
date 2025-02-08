@@ -1,36 +1,24 @@
 <template>
-  <p :style="{fontStyle: 'italic',fontWeight: 'bold'}">
-TEXT
-  </p>
+  <div>
+    <input v-model="text" placeholder="Введите текст" />
+    <p>{{ text }}</p>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      isValid: true,
-      isDisabled: true,
+      text: ""
     };
-  },
-  methods: {
-    toggleValid() {
-      this.isValid = !this.isValid;
-    },
-    toggleDisabled() {
-      this.isDisabled = !this.isDisabled;
-    },
-  },
+  }
 };
 </script>
 
-<style>
-.valid {
-  color: green;
-  font-weight: bold;
-}
-
-.disabled {
-  color: gray;
-  text-decoration: line-through;
+<style scoped>
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 </style>
