@@ -1,9 +1,15 @@
 <!-- Employee.vue -->
 <template>
 	<tr>
-	  <td>{{ firstName }}</td>
-	  <td>{{ lastName }}</td>
-	  <td>{{ age }}</td>
+	  <td>
+		<p>Имя: {{ firstName }}</p>
+	  </td>
+	  <td>
+		<p>Фамилия: {{ lastName }}</p>
+	  </td>
+	  <td>
+		<p>Возраст: {{ age }}</p>
+	  </td>
 	  <td>
 		<input v-if="isEditing" v-model="firstName" />
 		<input v-if="isEditing" v-model="lastName" />
