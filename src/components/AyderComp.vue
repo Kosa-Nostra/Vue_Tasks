@@ -1,7 +1,10 @@
 <template>
   <div>
-    <input type="text" v-bind:disabled="isDisabled" placeholder="Введите текст" />
-    <button @click="toggleInput">{{ isDisabled ? 'Разблокировать' : 'Заблокировать' }}</button>
+    <input type="text" v-bind:disabled="!isChecked" placeholder="Введите текст" />
+    <label>
+      <input type="checkbox" v-model="isChecked" />
+      Инпут активен
+    </label>
   </div>
 </template>
 
@@ -9,13 +12,8 @@
 export default {
   data() {
     return {
-      isDisabled: false // Состояние инпута: заблокирован или нет
+      isChecked: false // Состояние чекбокса: если true — инпут активен, если false — заблокирован
     };
-  },
-  methods: {
-    toggleInput() {
-      this.isDisabled = !this.isDisabled; // Переключаем состояние
-    }
   }
 };
 </script>
