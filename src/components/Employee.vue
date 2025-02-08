@@ -1,11 +1,10 @@
 <!-- Employee.vue -->
 <template>
-	<div>
-	  <h2>Данные работника</h2>
-	  <p>Имя: {{ name }}</p>
-	  <p>Зарплата: {{ salary }}</p>
-	  <p>Возраст: {{ age }}</p>
-	</div>
+	<tr>
+	  <td>{{ name }}</td>
+	  <td>{{ salary }}</td>
+	  <td>{{ age }}</td>
+	</tr>
   </template>
   
   <script>
