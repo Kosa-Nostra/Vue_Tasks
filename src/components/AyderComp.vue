@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a href="#" @click="handleClick">Нажмите на меня с зажатым Ctrl</a>
-    <p v-if="messageVisible">{{ message }}</p>
+    <a href="#" @mousedown="handleMouseDown">Нажмите на меня мышью</a>
+    <p v-if="clickedButton">Вы нажали: {{ clickedButton }}</p>
   </div>
 </template>
 
@@ -9,14 +9,18 @@
 export default {
   data() {
     return {
-      messageVisible: false, // Состояние для отображения сообщения
-      message: "Вы нажали ссылку с зажатым Ctrl!" // Сообщение для вывода
+      clickedButton: "" // Переменная для хранения текста, который будет отображаться
     };
   },
   methods: {
-    handleClick(event) {
-      if (event.ctrlKey) { // Проверяем, была ли зажата клавиша Ctrl
-        this.messageVisible = true; // Показываем сообщение
+    handleMouseDown(event) {
+      // Проверяем, какая кнопка была нажата
+      if (event.button === 0) {
+        this.clickedButton = "left"; // Левая кнопка мыши
+      } else if (event.button === 1) {
+        this.clickedButton = "middle"; // Средняя кнопка мыши
+      } else if (event.button === 2) {
+        this.clickedButton = "right"; // Правая кнопка мыши
       }
     }
   }
