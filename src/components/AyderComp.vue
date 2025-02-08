@@ -1,27 +1,21 @@
 <template>
   <div>
-    <h3>Какие языки вы знаете?</h3>
+    <h3>Какой язык для вас родной?</h3>
     <label>
-      <input type="checkbox" value="Русский" v-model="languages" /> Русский
+      <input type="radio" value="Русский" v-model="nativeLanguage" /> Русский
     </label>
     <label>
-      <input type="checkbox" value="Английский" v-model="languages" /> Английский
+      <input type="radio" value="Английский" v-model="nativeLanguage" /> Английский
     </label>
     <label>
-      <input type="checkbox" value="Испанский" v-model="languages" /> Испанский
+      <input type="radio" value="Испанский" v-model="nativeLanguage" /> Испанский
     </label>
     <label>
-      <input type="checkbox" value="Французский" v-model="languages" /> Французский
+      <input type="radio" value="Французский" v-model="nativeLanguage" /> Французский
     </label>
 
-    <div v-if="languages.length > 0">
-      <h4>Вы знаете следующие языки:</h4>
-      <ul>
-        <li v-for="language in languages" :key="language">{{ language }}</li>
-      </ul>
-    </div>
-    <div v-else>
-      <p>Вы не выбрали языки.</p>
+    <div v-if="nativeLanguage">
+      <p>Ваш родной язык: {{ nativeLanguage }}</p>
     </div>
   </div>
 </template>
@@ -30,7 +24,7 @@
 export default {
   data() {
     return {
-      languages: [] // Массив для хранения выбранных языков
+      nativeLanguage: "" // Переменная для хранения выбранного родного языка
     };
   }
 };
