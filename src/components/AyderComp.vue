@@ -38,7 +38,7 @@
 </template>
 
 <script>
-	import EmployeeComp from './components/EmployeeComp.vue'
+	import EmployeeComp from './components/Employee.vue'
 	
 	export default {
 		
