@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input v-model="text" placeholder="Введите текст" />
-    <p>{{ upperText }}</p>
+    <input v-model.number="number" type="number" placeholder="Введите число" />
+    <p>Квадрат числа: {{ squaredNumber }}</p>
   </div>
 </template>
 
@@ -9,12 +9,12 @@
 export default {
   data() {
     return {
-      text: ""
+      number: null
     };
   },
   computed: {
-    upperText() {
-      return this.text.toUpperCase();
+    squaredNumber() {
+      return this.number !== null ? this.number ** 2 : "";
     }
   }
 };
