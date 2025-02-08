@@ -1,30 +1,15 @@
 <template>
   <div>
-    <h3>Какой язык для вас родной?</h3>
-    <label>
-      <input type="radio" value="Русский" v-model="nativeLanguage" /> Русский
-    </label>
-    <label>
-      <input type="radio" value="Английский" v-model="nativeLanguage" /> Английский
-    </label>
-    <label>
-      <input type="radio" value="Испанский" v-model="nativeLanguage" /> Испанский
-    </label>
-    <label>
-      <input type="radio" value="Французский" v-model="nativeLanguage" /> Французский
-    </label>
+    <h3>В каком городе вы живете?</h3>
+    <select v-model="city">
+      <option value="Москва">Москва</option>
+      <option value="Санкт-Петербург">Санкт-Петербург</option>
+      <option value="Новосибирск">Новосибирск</option>
+      <option value="Екатеринбург">Екатеринбург</option>
+    </select>
 
-    <div v-if="nativeLanguage === 'Русский'">
-      <p>Ваш родной язык — это русский.</p>
-    </div>
-    <div v-if="nativeLanguage === 'Английский'">
-      <p>Your native language is English.</p>
-    </div>
-    <div v-if="nativeLanguage === 'Испанский'">
-      <p>Su lengua materna es el español.</p>
-    </div>
-    <div v-if="nativeLanguage === 'Французский'">
-      <p>Votre langue maternelle est le français.</p>
+    <div v-if="city">
+      <p>Вы живете в городе: {{ city }}</p>
     </div>
   </div>
 </template>
@@ -33,7 +18,7 @@
 export default {
   data() {
     return {
-      nativeLanguage: "" // Переменная для хранения выбранного родного языка
+      city: "" // Переменная для хранения выбранного города
     };
   }
 };
