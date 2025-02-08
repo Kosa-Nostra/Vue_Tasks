@@ -1,44 +1,14 @@
-<!-- Employee.vue -->
+<!-- EmployeeList.vue -->
 <template>
-	<tr>
-	  <td>
-		<p>Имя: {{ firstName }}</p>
-	  </td>
-	  <td>
-		<p>Фамилия: {{ lastName }}</p>
-	  </td>
-	  <td>
-		<p>Возраст: {{ age }}</p>
-	  </td>
-	  <td>
-		<input v-if="isEditing" v-model="firstName" />
-		<input v-if="isEditing" v-model="lastName" />
-		<input v-if="isEditing" v-model="age" />
-		<span v-else>{{ firstName }} {{ lastName }} - {{ age }} лет</span>
-	  </td>
-	  <td>
-		<a href="#" @click="removeUser">Удалить</a>
-		<a href="#" @click="toggleEdit">{{ isEditing ? 'Сохранить' : 'Редактировать' }}</a>
-	  </td>
-	</tr>
+	<ul>
+	  <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+	</ul>
   </template>
   
   <script>
   export default {
 	props: {
-	  firstName: String,
-	  lastName: String,
-	  age: Number,
-	  index: Number,
-	  isEditing: Boolean
-	},
-	methods: {
-	  removeUser() {
-		this.$emit('remove', this.index); // Отправляем событие удаления
-	  },
-	  toggleEdit() {
-		this.$emit('toggle-edit', this.index); // Переключаем режим редактирования
-	  }
+	  items: Array
 	}
   };
   </script>
