@@ -1,22 +1,30 @@
 <!-- App.vue -->
 <template>
   <div>
-    <h1>Список элементов</h1>
-    <employee-list :items="items"></employee-list>
+    <h1>Данные о работнике</h1>
+    <employee 
+      :name="employee.name"
+      :salary="employee.salary"
+      :age="employee.age"
+    ></employee>
   </div>
 </template>
 
 <script>
-// Импортируем дочерний компонент
-import EmployeeList from './EmployeeList.vue';
+// Импортируем компонент Employee
+import Employee from './Employee.vue';
 
 export default {
   components: {
-    EmployeeList
+    Employee
   },
   data() {
     return {
-      items: ['Элемент 1', 'Элемент 2', 'Элемент 3', 'Элемент 4']
+      employee: {
+        name: 'Иван Иванов',
+        salary: 50000,
+        age: 30
+      }
     };
   }
 };

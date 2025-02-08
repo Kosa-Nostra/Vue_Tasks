@@ -1,14 +1,19 @@
-<!-- EmployeeList.vue -->
+<!-- Employee.vue -->
 <template>
-	<ul>
-	  <li v-for="(item, index) in items" :key="index">{{ item }}</li>
-	</ul>
+	<div>
+	  <h2>Данные работника</h2>
+	  <p>Имя: {{ name }}</p>
+	  <p>Зарплата: {{ salary }}</p>
+	  <p>Возраст: {{ age }}</p>
+	</div>
   </template>
   
   <script>
   export default {
 	props: {
-	  items: Array
+	  name: String,
+	  salary: Number,
+	  age: Number
 	}
   };
   </script>
