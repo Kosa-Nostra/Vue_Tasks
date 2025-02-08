@@ -26,10 +26,15 @@
 <script>
 export default {
   data() {
+    const today = new Date();
+    const currentDay = today.getDate();
+    const currentMonth = today.getMonth() + 1; // Месяцы начинаются с 0
+    const currentYear = today.getFullYear();
+
     return {
-      selectedDay: "", // Выбранный день
-      selectedMonth: "", // Выбранный месяц
-      selectedYear: "", // Выбранный год
+      selectedDay: currentDay, // Устанавливаем текущий день
+      selectedMonth: currentMonth, // Устанавливаем текущий месяц
+      selectedYear: currentYear, // Устанавливаем текущий год
       days: Array.from({ length: 31 }, (_, i) => i + 1), // Массив дней от 1 до 31
       months: [
         "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
