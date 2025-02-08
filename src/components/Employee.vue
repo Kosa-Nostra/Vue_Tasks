@@ -1,25 +1,20 @@
 <!-- Employee.vue -->
 <template>
-	<tr>
-	  <td>{{ name }}</td>
-	  <td>{{ salary }}</td>
-	  <td>{{ age }}</td>
-	</tr>
+	<div>
+	  <button @click="onButtonClick1">Нажми кнопку 1</button>
+	  <button @click="onButtonClick2">Нажми кнопку 2</button>
+	</div>
   </template>
   
   <script>
   export default {
 	props: {
-	  name: {
-		type: String,
+	  onButtonClick1: {
+		type: Function,
 		required: true
 	  },
-	  salary: {
-		type: Number,
-		required: true
-	  },
-	  age: {
-		type: Number,
+	  onButtonClick2: {
+		type: Function,
 		required: true
 	  }
 	}
