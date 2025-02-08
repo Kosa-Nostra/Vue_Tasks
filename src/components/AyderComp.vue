@@ -14,11 +14,14 @@
       <input type="checkbox" value="Французский" v-model="languages" /> Французский
     </label>
 
-    <div>
+    <div v-if="languages.length > 0">
       <h4>Вы знаете следующие языки:</h4>
       <ul>
         <li v-for="language in languages" :key="language">{{ language }}</li>
       </ul>
+    </div>
+    <div v-else>
+      <p>Вы не выбрали языки.</p>
     </div>
   </div>
 </template>
