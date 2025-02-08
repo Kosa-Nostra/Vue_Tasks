@@ -1,7 +1,10 @@
 <template>
   <div>
-    <a href="#" @mousedown="handleMouseDown">Нажмите на меня мышью</a>
-    <p v-if="clickedButton">Вы нажали: {{ clickedButton }}</p>
+    <ul>
+      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+    </ul>
+    <input v-model="newItem" type="text" placeholder="Введите текст" />
+    <button @click="addItem">Добавить в список</button>
   </div>
 </template>
 
@@ -9,18 +12,15 @@
 export default {
   data() {
     return {
-      clickedButton: "" // Переменная для хранения текста, который будет отображаться
+      items: ["Элемент 1", "Элемент 2", "Элемент 3"], // Исходный массив
+      newItem: "" // Переменная для текста из инпута
     };
   },
   methods: {
-    handleMouseDown(event) {
-      // Проверяем, какая кнопка была нажата
-      if (event.button === 0) {
-        this.clickedButton = "left"; // Левая кнопка мыши
-      } else if (event.button === 1) {
-        this.clickedButton = "middle"; // Средняя кнопка мыши
-      } else if (event.button === 2) {
-        this.clickedButton = "right"; // Правая кнопка мыши
+    addItem() {
+      if (this.newItem.trim() !== "") { // Проверяем, что текст не пустой
+        this.items.push(this.newItem); // Добавляем новый элемент в массив
+        this.newItem = ""; // Очищаем инпут
       }
     }
   }
