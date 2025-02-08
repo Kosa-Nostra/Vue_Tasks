@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" v-model="inputText" @keydown.enter="showText" placeholder="Введите текст" />
-    <p v-if="submittedText">Вы ввели: {{ submittedText }}</p>
+    <a href="#" @click="handleClick">Нажмите на меня с зажатым Ctrl</a>
+    <p v-if="messageVisible">{{ message }}</p>
   </div>
 </template>
 
@@ -9,14 +9,15 @@
 export default {
   data() {
     return {
-      inputText: "", // Текущий текст в инпуте
-      submittedText: "" // Текст, который был отправлен
+      messageVisible: false, // Состояние для отображения сообщения
+      message: "Вы нажали ссылку с зажатым Ctrl!" // Сообщение для вывода
     };
   },
   methods: {
-    showText() {
-      this.submittedText = this.inputText; // Копируем введенный текст в переменную для отображения
-      this.inputText = ""; // Очищаем инпут
+    handleClick(event) {
+      if (event.ctrlKey) { // Проверяем, была ли зажата клавиша Ctrl
+        this.messageVisible = true; // Показываем сообщение
+      }
     }
   }
 };
