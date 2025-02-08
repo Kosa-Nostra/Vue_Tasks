@@ -3,11 +3,11 @@
   <div>
     <h1>Список работников</h1>
     <div v-for="(user, index) in users" :key="user.id">
-      <!-- Передаем данные работника в компонент Employee -->
       <Employee 
         :employee="user" 
         :index="index" 
         @delete-employee="removeUser"
+        @update-employee="updateUser"
       />
     </div>
   </div>
@@ -31,8 +31,13 @@ export default {
     };
   },
   methods: {
+    // Метод для удаления работника
     removeUser(index) {
       this.users.splice(index, 1);  // Удаляем работника из списка
+    },
+    // Метод для обновления данных работника
+    updateUser(index, updatedEmployee) {
+      this.$set(this.users, index, updatedEmployee);  // Обновляем данные работника по индексу
     }
   }
 };
