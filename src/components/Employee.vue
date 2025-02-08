@@ -1,30 +1,27 @@
 <!-- Employee.vue -->
 <template>
 	<div>
-	  <button @click="sendDataToParent">Отправить данные родителю</button>
+	  <span>{{ employee.name }} - {{ employee.salary }} - {{ employee.age }} лет</span>
+	  <button @click="deleteEmployee">Удалить</button>
 	</div>
   </template>
   
   <script>
   export default {
 	props: {
-	  func: {
-		type: Function,
+	  employee: {
+		type: Object,
 		required: true
 	  },
-	  name: {
-		type: String,
-		required: true
-	  },
-	  salary: {
+	  index: {
 		type: Number,
 		required: true
 	  }
 	},
 	methods: {
-	  sendDataToParent() {
-		// Вызов метода родителя, передаем имя и зарплату
-		this.func(this.name, this.salary);
+	  deleteEmployee() {
+		// Испускаем событие для удаления работника
+		this.$emit('delete-employee', this.index);
 	  }
 	}
   };
