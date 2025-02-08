@@ -1,21 +1,22 @@
 <!-- Employee.vue -->
 <template>
 	<div>
-	  <button @click="onButtonClick1">Нажми кнопку 1</button>
-	  <button @click="onButtonClick2">Нажми кнопку 2</button>
+	  <button @click="sendNameToParent">Отправить имя родителю</button>
 	</div>
   </template>
   
   <script>
   export default {
 	props: {
-	  onButtonClick1: {
+	  func: {
 		type: Function,
 		required: true
-	  },
-	  onButtonClick2: {
-		type: Function,
-		required: true
+	  }
+	},
+	methods: {
+	  sendNameToParent() {
+		// Вызов метода родителя, передаем имя работника
+		this.func('Иван Иванов');
 	  }
 	}
   };

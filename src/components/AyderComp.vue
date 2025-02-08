@@ -1,11 +1,8 @@
 <!-- App.vue -->
 <template>
   <div>
-    <h1>Пример передачи функций в дочерний компонент</h1>
-    <employee
-      :onButtonClick1="handleButtonClick1"
-      :onButtonClick2="handleButtonClick2"
-    ></employee>
+    <h1>Данные о работнике</h1>
+    <employee :func="func"></employee>
   </div>
 </template>
 
@@ -18,11 +15,8 @@ export default {
     Employee
   },
   methods: {
-    handleButtonClick1() {
-      alert('Кнопка 1 нажата');
-    },
-    handleButtonClick2() {
-      alert('Кнопка 2 нажата');
+    func(name) {
+      console.log(name);
     }
   }
 };
