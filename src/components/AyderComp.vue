@@ -1,8 +1,9 @@
 <template>
   <div>
-    <input v-model.number="number" type="number" placeholder="Введите число" />
-    <button @click="calculateSqrt">Вычислить корень</button>
-    <p v-if="sqrtResult !== null">Квадратный корень: {{ sqrtResult }}</p>
+    <input v-model.number="number1" type="number" placeholder="Введите первое число" />
+    <input v-model.number="number2" type="number" placeholder="Введите второе число" />
+    <button @click="calculateSum">Посчитать сумму</button>
+    <p v-if="sum !== null">Сумма: {{ sum }}</p>
   </div>
 </template>
 
@@ -10,17 +11,14 @@
 export default {
   data() {
     return {
-      number: null,
-      sqrtResult: null
+      number1: null,
+      number2: null,
+      sum: null
     };
   },
   methods: {
-    calculateSqrt() {
-      if (this.number !== null && this.number >= 0) {
-        this.sqrtResult = Math.sqrt(this.number).toFixed(2); // округление до 2 знаков
-      } else {
-        this.sqrtResult = "Некорректный ввод";
-      }
+    calculateSum() {
+      this.sum = (this.number1 ?? 0) + (this.number2 ?? 0);
     }
   }
 };
