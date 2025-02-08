@@ -1,35 +1,18 @@
-<!-- App.vue -->
-<template>
-  <div>
-    <h1>Данные о работнике</h1>
-    <employee 
-      :func="func" 
-      :name="worker.name" 
-      :salary="worker.salary"
-    ></employee>
-  </div>
-</template>
-
+<div id="app">
+  <button @click="emitEvent">Нажми, чтобы испустить событие</button>
+  <p>{{ message }}</p>
+</div>
 <script>
-// Импортируем компонент Employee
-import Employee from './Employee.vue';
-
-export default {
-  components: {
-    Employee
-  },
-  data() {
-    return {
-      worker: {
-        name: 'Иван Иванов',
-        salary: 50000
+  new Vue({
+    el: '#app',
+    data: {
+      message: ''
+    },
+    methods: {
+      emitEvent() {
+        // Испускаем событие (в данном случае просто обновляем данные)
+        this.message = 'Это событие было испущено';
       }
-    };
-  },
-  methods: {
-    func(name, salary) {
-      console.log(name, salary);  // Выводит имя и зарплату работника в консоль
     }
-  }
-};
+  });
 </script>
