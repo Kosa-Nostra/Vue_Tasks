@@ -11,9 +11,18 @@
   <script>
   export default {
 	props: {
-	  name: String,
-	  salary: Number,
-	  age: Number
+	  name: {
+		type: String,
+		required: true
+	  },
+	  salary: {
+		type: Number,
+		required: true
+	  },
+	  age: {
+		type: Number,
+		required: true
+	  }
 	}
   };
   </script>
