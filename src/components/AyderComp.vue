@@ -1,7 +1,8 @@
-<!-- App.vue -->
+
 <template>
   <div>
     <h1>Список работников</h1>
+    <EmployeeForm @add-employee="addNewEmployee" />
     <div v-for="(user, index) in users" :key="user.id">
       <Employee 
         :employee="user" 
@@ -14,12 +15,14 @@
 </template>
 
 <script>
-// Импортируем компонент Employee
+// Импортируем компоненты Employee и EmployeeForm
 import Employee from './Employee.vue';
+import EmployeeForm from './EmployeeForm.vue';
 
 export default {
   components: {
-    Employee
+    Employee,
+    EmployeeForm
   },
   data() {
     return {
@@ -38,6 +41,11 @@ export default {
     // Метод для обновления данных работника
     updateUser(index, updatedEmployee) {
       this.$set(this.users, index, updatedEmployee);  // Обновляем данные работника по индексу
+    },
+    // Метод для добавления нового работника
+    addNewEmployee(newEmployee) {
+      const newId = this.users.length ? Math.max(...this.users.map(user => user.id)) + 1 : 1;
+      this.users.push({ ...newEmployee, id: newId }); // Добавляем нового работника в список
     }
   }
 };
