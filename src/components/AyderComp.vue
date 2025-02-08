@@ -14,8 +14,17 @@
       <input type="radio" value="Французский" v-model="nativeLanguage" /> Французский
     </label>
 
-    <div v-if="nativeLanguage">
-      <p>Ваш родной язык: {{ nativeLanguage }}</p>
+    <div v-if="nativeLanguage === 'Русский'">
+      <p>Ваш родной язык — это русский.</p>
+    </div>
+    <div v-if="nativeLanguage === 'Английский'">
+      <p>Your native language is English.</p>
+    </div>
+    <div v-if="nativeLanguage === 'Испанский'">
+      <p>Su lengua materna es el español.</p>
+    </div>
+    <div v-if="nativeLanguage === 'Французский'">
+      <p>Votre langue maternelle est le français.</p>
     </div>
   </div>
 </template>
