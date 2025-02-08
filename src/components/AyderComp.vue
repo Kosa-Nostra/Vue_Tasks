@@ -1,8 +1,10 @@
 <template>
   <div>
-    <input v-model="text1" type="text" placeholder="Введите первый текст" />
-    <input v-model="text2" type="text" placeholder="Введите второй текст" />
-    <button @click="swapTexts">Поменять местами</button>
+    <input v-model="fullName" type="text" placeholder="Введите ФИО" />
+    <button @click="splitFullName">Разделить ФИО</button>
+    <p v-if="lastName">Фамилия: {{ lastName }}</p>
+    <p v-if="firstName">Имя: {{ firstName }}</p>
+    <p v-if="middleName">Отчество: {{ middleName }}</p>
   </div>
 </template>
 
@@ -10,13 +12,18 @@
 export default {
   data() {
     return {
-      text1: "",
-      text2: ""
+      fullName: "",
+      lastName: "",
+      firstName: "",
+      middleName: ""
     };
   },
   methods: {
-    swapTexts() {
-      [this.text1, this.text2] = [this.text2, this.text1];
+    splitFullName() {
+      const parts = this.fullName.trim().split(" ");
+      this.lastName = parts[0] || "";
+      this.firstName = parts[1] || "";
+      this.middleName = parts[2] || "";
     }
   }
 };
